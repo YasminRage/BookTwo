@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSFiddle mg14px2r</title>
+
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+}
+#container {
+    padding: 10px;
+    width: 360px;
+    height: 80%;
+    background-color: #0000;
+}
+#track {
+    width: 340px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin: 20px auto;
+}
+#train {
+    height: 92px;
+    width: 100px;
+    position: relative;
+    left: 0px;
+}
+#stopButton {
+    padding-top: 15px;
+    margin: 10px auto;
+    background-color: red;
+    width: 100px;
+    height: 50px;
+    color: white;
+    text-align:center;
+    font-size: 24px;
+    line-height: 30px;
+}
+  </style>
+
+  
+</head>
+<body>
+  <div id="container">
+    <p>
+        <ul>
+            <li>Click the train to make it go faster.</li>
+            <li>Click the Stop button to stop it.</li>
+            <li>Try to stop it as close to the edge as possible, without crashing.</li>
+        </ul>
+    </p>
+    <div id="track">
+        <div id="train">
+            <img src="https://fly.storage.tigris.dev/sticker-bucket/prediction-30504-sticker.png">
+        </div>
+    </div>
+    <div id="stopButton">Stop!</div>
+</div>
+
+  <script>
+    //train speed 
+var trainSpeed = 250;
+var trainPosition = 0;
+var animation;
+//click events,speedup
+var train = document.getElementById("train");
+train.addEventListener("click", speedUp);
+//click events, stop 
+var stopButton = document.getElementById("stopButton");
+stopButton.addEventListener("click", stopTrain);
+//function,speed
+function speedUp() {
+    if (trainSpeed > 10) {
+        trainSpeed -= 10;
+    }
+    console.log("train speed: " + trainSpeed);
+
+    clearInterval(animation);
+    animation = setInterval(frame, trainSpeed);
+
+
+    function frame() {
+        trainPosition += 2;
+        train.style.left = trainPosition + 'px';
+        console.log(trainPosition);
+        checkPosition(trainPosition);
+    }
+}
+
+function checkPosition(currentPosition) {
+    if (currentPosition === 260) {
+        alert("Crash!");
+        console.log("Crash!");
+        clearInterval(animation);
+    }
+}
+
+function stopTrain() {
+    if (trainPosition < 260) {
+        clearInterval(animation);
+        console.log("Whew! That was close!");
+    }
+}
+  </script>
+</body>
+</html>

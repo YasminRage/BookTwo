@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 7: Animated Robot</title>
+
+  <style>
+    body {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+p {
+    font-size: 3em;
+}
+.eye {
+    background-color:brown;
+    width:20%;
+    height:20%;
+    border-radius: 50%;
+}
+.arm {
+    background-color: #cacaca;
+    position: absolute;
+    top: 35%;
+    width: 5%;
+    height: 40%;
+}
+
+#head {
+    width:30%;
+    height:30%;
+    border-radius: 15%;
+    background-color: #dadada;
+    position: absolute;
+    left: 32%;
+    top: 5%;
+}
+#righteye {
+    position: absolute;
+    left: 20%;
+    top: 20%;
+}
+#lefteye {
+    position: absolute;
+    left: 60%;
+    top: 20%;
+}
+#nose {
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    width: 10%;
+    height: 10%;
+    background-color: black;
+}
+#mouth {
+    position: absolute;
+    width: 65%;
+    height: 15%;
+    left: 20%;
+    top: 70%;
+    background-color: purple;
+}
+#body {
+    position: absolute;
+    left: 25%;
+    top: 35%;
+    width: 45%;
+    height: 55%;
+    background-color: #dadada;
+    text-align:center;
+    padding-top: 30px;
+}
+
+#rightarm {
+    position:absolute;
+    left:20%;
+}
+#leftarm {
+    position: absolute;
+    left: 70%;
+    width: 30%;
+    height: 7%;
+}
+
+  </style>
+
+  
+</head>
+<body>
+  <div id="robot">
+<div id="head">
+    <div class="eye" id="righteye"></div>
+    <div class="eye" id="lefteye"></div>
+    <div id="nose"></div>
+    <div id="mouth"></div>
+    <div id="eyelash" id="rightEyelash"></div> 
+    <div id="eyelash" id="leftEyelash"></div> 
+    
+     </div>
+</div>
+<div class="arm" id="rightarm"></div>
+<div id="body"><p>Yasmin's Robot!</p></div>
+<div class="arm" id="leftarm"></div>
+</div>
+
+  <script>
+    var rightEye = document.getElementById("righteye");
+var leftEye = document.getElementById("lefteye");
+var rightEyelash = document.getElementById("righteyelash")
+var leftArm = document.getElementById("leftarm");
+
+rightEye.addEventListener("click", moveUpDown);
+leftEye.addEventListener("click", moveUpDown);
+leftArm.addEventListener("click", moveRightLeft);
+
+
+function moveUpDown(e) {
+  var robotPart = e.target;
+  var top = 0;
+
+  var id = setInterval(frame, 10) // draw every 10ms
+
+  function frame() {
+    robotPart.style.top = top + '%';    
+    top++;
+    if (top === 20){
+      clearInterval(id);
+    }
+  }
+  
+}
+
+
+function moveRightLeft(e) {
+  var robotPart = e.target;
+  var left = 0;
+  var id = setInterval(frame, 10) // draw every 10ms
+  function frame() {
+    robotPart.style.left = left + '%';
+    left++;
+    if (left === 70){
+      clearInterval(id);
+    }
+  }
+}
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSFiddle rL0m3ock</title>
+
+  <style>
+    #BMW {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 50px;
+    color: black;
+}
+#carbody {
+    position: relative;
+    width: 300px;
+    height: 70px;
+    background-color: black;
+    border-radius: 30px 30px 10px 10px 10px;
+    margin: 50px auto; 
+}
+#carbody::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 50px;
+    background-color: lightblue;
+    top: -20px;
+    left: 90px;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Front Wheel */
+#frontwheel, #backwheel {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 50%;
+    border: 3px solid gray;
+}
+
+/* Back Wheel */
+#backwheel {
+    bottom: -25px;
+    left: 30px;
+}
+
+#frontwheel {
+    bottom: -25px;
+    right: 30px;
+}
+  </style>
+
+  
+</head>
+<body>
+  <div id="BMW">
+This Brand Spanking New BMW Can Be Yours For Just: $25000<span id="pricetag"></span>
+<div id="carbody">
+<div id="frontwheel"></div>
+<div id="backwheel"></div>
+</div>
+
+  <script>
+    let BMW = {
+make: "BMW",
+model: "98",
+color: "black",
+year: 1985,
+bodyStyle: "",
+price: 4500
+}
+
+alert("This BMW is: " + typeof dreamCar);
+
+document.getElementById("pricetag").innerHTML = dreamCar.price;
+document.getElementById("modelyear").innerHTML = dreamCar.year;
+document.getElementById("body").innerHTML = dreamCar.make + " " +
+dreamCar.model;
+  </script>
+</body>
+</html>
